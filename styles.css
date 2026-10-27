@@ -184,12 +184,12 @@ a:hover { color: var(--accent); }
 }
 
 /* Print = Download PDF (A4) */
-@page { size: A4; margin: 14mm 14mm; }
+@page { size: A4; margin: 12mm 14mm; }
 @media print {
   body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
   h3 { font-size: 11.5pt; }
   .competencies h3, .entry h3 { font-size: 10pt; }
-  .job + .job { margin-top: 16px; }
+  .job + .job { margin-top: 12px; }
   li + li { margin-top: 2px; }
   .entry + .entry { margin-top: 8px; }
   .no-print { display: none !important; }
@@ -207,8 +207,9 @@ a:hover { color: var(--accent); }
   .side section { break-inside: avoid; }
   .contacts { color: var(--text); line-height: 1.6; }
   .contacts a { color: var(--text); padding: 0; }
-  section + section { margin-top: 20px; }
-  .job, .entry, .competencies > div { break-inside: avoid; }
+  section + section { margin-top: 16px; }
+  .entry, .competencies > div, li { break-inside: avoid; }
+  .job > h3, .job__title, .job__dates { break-after: avoid; }
   h2 { break-after: avoid; }
   .tags { display: block; }
   .tags li { display: inline; padding: 0; background: none; font-size: inherit; }
