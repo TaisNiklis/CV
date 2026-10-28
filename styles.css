@@ -1,0 +1,221 @@
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/manrope-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/fonts/manrope-600.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/manrope-700.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("assets/fonts/manrope-800.woff2") format("woff2");
+}
+
+:root {
+  --bg: #f6f6f4;
+  --paper: #ffffff;
+  --text: #2b2b2b;
+  --muted: #6b6b6b;
+  --line: #e7e7e3;
+  --accent: #3b5bdb;
+  --tag-bg: #f1f2f6;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 400 15px/1.6 "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.page {
+  max-width: 1040px;
+  margin: 40px auto;
+  padding: 56px 64px;
+  background: var(--paper);
+  border-radius: 20px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .04), 0 12px 40px rgba(0, 0, 0, .05);
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--line);
+}
+.hero__photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.hero__text { flex: 1; min-width: 0; }
+h1 {
+  margin: 0;
+  font-size: 40px;
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -.02em;
+}
+.hero__role { margin: 10px 0 2px; font-weight: 600; }
+.contacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 8px;
+  margin: 6px 0 0;
+  line-height: 2;
+  padding: 0;
+  list-style: none;
+  color: var(--muted);
+}
+.contacts li { margin: 0; }
+.contacts li:not(:last-child)::after { content: " ·"; }
+.contacts a { color: var(--muted); }
+.contacts a:hover { color: var(--accent); }
+
+.btn {
+  flex-shrink: 0;
+  padding: 12px 20px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--text);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .15s;
+}
+.btn:hover { background: var(--accent); }
+.btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* Layout */
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 240px;
+  gap: 64px;
+  padding-top: 40px;
+}
+
+section + section { margin-top: 36px; }
+
+h2 {
+  margin: 0 0 14px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+h3 { margin: 0; font-size: 18px; font-weight: 700; }
+p { margin: 0 0 10px; }
+
+ul { margin: 0; padding-left: 18px; }
+li + li { margin-top: 4px; }
+li::marker { color: var(--muted); }
+
+.muted { color: var(--muted); }
+
+/* Experience */
+.job + .job { margin-top: 28px; }
+.job__title { margin: 2px 0 0; font-weight: 600; }
+.job__dates { margin: 0 0 10px; color: var(--muted); font-size: 14px; }
+
+.entry + .entry { margin-top: 16px; }
+.entry h3 { font-size: 16px; }
+.entry p { margin: 0; }
+
+/* Competencies */
+.competencies { display: grid; gap: 20px; }
+.competencies h3 { font-size: 15px; margin-bottom: 8px; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; padding: 0; list-style: none; }
+.tags li {
+  margin: 0;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--tag-bg);
+  font-size: 13px;
+}
+
+/* Sidebar */
+.links, .plain { padding: 0; list-style: none; }
+.links li + li, .plain li + li { margin-top: 8px; }
+a { color: var(--text); text-underline-offset: 3px; }
+a:hover { color: var(--accent); }
+
+.tools { margin: 0; }
+.tools dt { font-weight: 600; }
+.tools dd { margin: 0 0 10px; color: var(--muted); }
+
+/* Tablet & phone */
+@media screen and (max-width: 820px) {
+  .page { margin: 0; padding: 32px 16px; border-radius: 0; box-shadow: none; }
+  .layout { grid-template-columns: 1fr; gap: 36px; }
+  .side { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .side section + section { margin-top: 0; }
+}
+@media screen and (max-width: 560px) {
+  .hero { flex-wrap: wrap; gap: 16px; }
+  .hero__photo { width: 88px; height: 88px; }
+  h1 { font-size: 30px; }
+  .btn { width: 100%; }
+  .side { grid-template-columns: 1fr; }
+}
+
+/* Print = Download PDF (A4) */
+@page { size: A4; margin: 12mm 14mm; }
+@media print {
+  body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
+  h3 { font-size: 11.5pt; }
+  .competencies h3, .entry h3 { font-size: 10pt; }
+  .job + .job { margin-top: 12px; }
+  li + li { margin-top: 2px; }
+  .entry + .entry { margin-top: 8px; }
+  .no-print { display: none !important; }
+  .page { margin: 0; padding: 0; max-width: none; box-shadow: none; border-radius: 0; }
+  .hero { padding-bottom: 20px; }
+  .hero__photo { width: 90px; height: 90px; }
+  h1 { font-size: 26pt; }
+  /* One column so ATS parsers read sections in order */
+  .layout { display: block; padding-top: 20px; }
+  .side { display: block; margin-top: 20px; }
+  .side .plain li { display: inline; }
+  .side .plain li:not(:last-child)::after { content: " · "; color: var(--muted); }
+  .tools { display: grid; grid-template-columns: max-content 1fr; gap: 2px 12px; }
+  .tools dd { margin: 0; }
+  .side section { break-inside: avoid; }
+  .contacts { color: var(--text); line-height: 1.6; }
+  .contacts a { color: var(--text); padding: 0; }
+  section + section { margin-top: 16px; }
+  .entry, .competencies > div, li { break-inside: avoid; }
+  .job > h3, .job__title, .job__dates { break-after: avoid; }
+  h2 { break-after: avoid; }
+  .tags { display: block; }
+  .tags li { display: inline; padding: 0; background: none; font-size: inherit; }
+  .tags li:not(:last-child)::after { content: " · "; color: var(--muted); }
+  .competencies { gap: 12px; }
+  .side li + li { margin-top: 3px; }
+  a { text-decoration: none; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
